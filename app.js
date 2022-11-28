@@ -34,7 +34,7 @@ app.use("/api/meter_units", meter_units);
 app.use("/api/calculator", calculator);
 
 // TODO: use route here
-app.listen(3000, () => {
+app.listen(3002, () => {
   console.log(
     "=====================================================================\n"
   );
