@@ -3,9 +3,9 @@ const validator = require("express-validator");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 
-// TODO: import route here
-const meter_units = require('./routes/meter_units');
-const calculator = require('./routes/calculator');
+// Import routes here
+const meter_units = require("./routes/meter_units");
+const calculator = require("./routes/calculator");
 
 const app = express();
 
@@ -16,8 +16,8 @@ app.use(validator());
 
 app.use(function (req, res, next) {
   // res.set("Access-Control-Allow-Origin", "*");
-  res.set("Access-Control-Allow-Origin", "http://192.168.100.7:8080");
-  // res.set("Access-Control-Allow-Origin", "http://192.168.20.127:8080");
+  // res.set("Access-Control-Allow-Origin", "http://192.168.100.7:8080");
+  res.set("Access-Control-Allow-Origin", "http://192.168.1.10:8080");
   res.set("Access-Control-Allow-Credentials", "true");
   res.set(
     "Access-Control-Allow-Methods",
@@ -35,9 +35,13 @@ app.use("/api/calculator", calculator);
 
 // TODO: use route here
 app.listen(3000, () => {
-  console.log("=====================================================================\n")
+  console.log(
+    "=====================================================================\n"
+  );
   console.log(
     " < METER CALCULATOR API > \n Express server is running at port 3000 \n ready to go ! "
   );
-  console.log("=====================================================================\n")
+  console.log(
+    "=====================================================================\n"
+  );
 });
