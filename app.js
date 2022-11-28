@@ -15,9 +15,7 @@ app.use(cookieParser());
 app.use(validator());
 
 app.use(function (req, res, next) {
-  // res.set("Access-Control-Allow-Origin", "*");
-  // res.set("Access-Control-Allow-Origin", "http://192.168.100.7:8080");
-  res.set("Access-Control-Allow-Origin", "http://192.168.1.10:8080");
+  res.set("Access-Control-Allow-Origin", "http://meter.intelimyanmar.com:8080");
   res.set("Access-Control-Allow-Credentials", "true");
   res.set(
     "Access-Control-Allow-Methods",
