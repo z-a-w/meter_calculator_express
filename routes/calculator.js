@@ -51,16 +51,20 @@ router.post("/", function (req, res) {
 // Update a calculator
 router.put("/:id", function (req, res) {
   let calculatorId = req.params.id;
+
   req.checkParams("id", "Calculator Id should be mongoId").isMongoId();
   req.checkBody("fromUnit", "From unit should be integer").isInt();
   req.checkBody("toUnit", "To unit should be integer").isInt();
-  req.checkBody("price", "Price should be Inteber").isInt();
+  req.checkBody("price", "Price should be integer").isInt();
+
   var errors = req.validationErrors();
   if (errors) {
     res.status(400).json(errors);
     return false;
   }
+
   req.body.updatedAt = new Date();
+
   db.calculator.update(
     { _id: mongojs.ObjectId(calculatorId) },
     { $set: req.body },
@@ -76,6 +80,7 @@ router.delete("/:id", function (req, res) {
   let calculatorId = req.params.id;
 
   req.checkParams("id", "Calculator Id should be mongoId").isMongoId();
+
   let validation_errors = req.validationErrors();
   if (validation_errors) {
     res.status(400).json(validation_errors);
